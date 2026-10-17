@@ -39,7 +39,7 @@ header h1 {
     left: 50%;
     top: 8%;
     transform: translate(-50%); /*since each object can be a different size, the 50%  left doesn't alone center it, but if you remove half the size relative to the object it will center*/
-    
+    /* The position of the h1 makes it not really responsive, so the best way to do that would be to put the h1 in a container with the image, but since we haven't really learnt that it's placed under the header */
 }
 
 nav {
@@ -61,9 +61,25 @@ nav a + a { /*skips the first anchor in the row of 3 so there is no weird line t
     border-left: black solid 1px
 }
 
+nav a:hover {
+    background-color: rgba(0, 0, 0, 0.20);
+}
+
 article {
     padding-left: 1%;
     padding-right: 1%;
+}
+
+article > img {
+    float: left; /*makes it so the image can appear beside the text, not ontop of it, allowing inline iamge*/
+    aspect-ratio: 1; /*makes sure no matter the sizzzing the image stays square*/
+    width: 25%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+
+article > h3 {
+    clear: left; /*since the image above it is floated, this makes it so that it clears being beside any floats to the left, in this case the image, so it always sits undernearth no matter how much space the image and text above it take up*/
 }
 
 ul {
@@ -74,16 +90,45 @@ ul {
 
 form {
     border: black solid 1px;
-    padding: 2%;
+    padding: 1%;
+}
+
+form > div {
+    margin-top: 2%;
+}
+
+form > div > input:not([type="submit"]) , form > div > textarea {
+    width: 100%;
+    box-sizing: border-box /*padding was being slightly ignored by the inputs causing unevenness left to right, so this fixes that width behavior*/
+}
+
+form > div > textarea {
+    resize: none;
+    height: 4rem; /*good size because it's realitve to the font size, meaning it fits 4 lines roughly of text*/
+}
+
+form > div > input:is([type="submit"]) {
+    padding: 8px;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid black;
+}
+
+form > div > input:is([type="submit"]):hover { /*makes it so the button is obviously a button when hovered, otherwise the color not changing makes it feel like you can't interact with it */
+    background-color: rgba(0, 0, 0, 0.20);
 }
 
 fieldset {
     border: none;
     padding: 0;
     margin: 0;
+    margin-top: 2%;
 }
 
 legend {
     padding: 0;
     margin: 0;
+    font-size: 1.2rem;
+    margin-bottom: 2%;
 }
+
