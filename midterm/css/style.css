@@ -1,0 +1,89 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #628a8f;
+    position: relative; /*allows children with postion absolute to anchor to the parent's edges*/
+    margin:0;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+    margin-bottom: 1%;
+}
+
+.wrapper {
+    background-color: #67c5d1;
+    width: fit-content; /*stays the size of the image inside it, which should be always the widest part*/
+    margin-right: 15%;
+    margin-left: 15%;
+}
+
+header img {
+    width: 100%;
+    object-fit: cover; /*crops the fill*/
+}
+
+header h1 {
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 8%;
+    transform: translate(-50%); /*since each object can be a different size, the 50%  left doesn't alone center it, but if you remove half the size relative to the object it will center*/
+    
+}
+
+nav {
+    width: 100%;
+}
+
+nav a {
+    text-transform: uppercase;
+    width: 33%;
+    box-sizing: border-box;   /* so borders and padding don't push past 33% */
+    display: inline-block; /*works as a block where it allows the anchor to be sized with the width rule, but still says side by side because it's inline*/
+    text-align: center;
+    color: black ;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+nav a + a { /*skips the first anchor in the row of 3 so there is no weird line that isnt between two anchors, only lines if there are two between eachother*/
+    border-left: black solid 1px
+}
+
+article {
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+ul {
+    list-style-position: inside; /*places the markers/dots of the list inside the ul, so then removing margin and padding actually aligns it the same as the rest of the article*/
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    border: black solid 1px;
+    padding: 2%;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    padding: 0;
+    margin: 0;
+}
